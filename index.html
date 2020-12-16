@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Questions &#128520;</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper navbar-fixed blue-grey darken-4">
+                <span class="brand-logo center">Hidden Questions</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="app">
+            <ul class="collapsible popout" v-for="quest of questions" :key="quest.questionId" >
+                <li>
+                    <div class="collapsible-header">                  
+                        <div class="content-questions" style="display: flex;  flex-direction: column;">
+                            <div class="section ">
+                                <i class="material-icons">free_breakfast</i>
+                                <span class="title">{{quest.questionId}} - {{quest.question}}</span>
+                            </div>
+                            <div class="section ">
+                                <span class="title">Options</span>
+                                <div class="collection">
+                                    <ul>
+                                        <li v-for="opt of quest.options" :key="opt.optionId">
+                                            {{opt.optionId}} <span>&#8226;</span> {{opt.optionText}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        Correct answer is <span class="flow-text cyan-text text-darken-4 ">{{quest.correctAnswer}}</span>
+                    </div>    
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+    <footer class="page-footer indigo accent-1">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Created by JuanManuelPL
+                <a class="grey-text text-lighten-4 right" href="https://github.com/JuanManuelPL">Github</a>
+            </div>
+        </div>
+    </footer>
+
+          
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>     
+    <script src="Js/autoinit.js"></script>
+    <script src="Js/data.js"></script>
+</body>
+</html>
