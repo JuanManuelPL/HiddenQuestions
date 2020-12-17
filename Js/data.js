@@ -1,17 +1,20 @@
 var app = new Vue({
     el: '#app',
-    data: {
+    data:{
 
         "questions":[
             {
                 "questionId": "Q001",
+                "context" : "This section can contain more information about the question.",
                 "question": "Hi, How old are you ?",
                 "options":[
                     {
-                        "optionText": "Hi, i'm 21 years old"
+                        "type": "text",
+                        "option": "Hi, i'm 21 years old"
                     },
                     {
-                        "optionText": "I'm kim, nice to meet you!"
+                        "type": "text",
+                        "option": "I'm kim, nice to meet you!"
                     }
                 ],
                 "correctAnswer": "Hi, i'm 21 years old"
@@ -21,10 +24,12 @@ var app = new Vue({
                 "question": "What's your name ?",
                 "options":[
                     {
-                        "optionText": "I'm juan manuel"
+                        "type": "text",
+                        "option": "I'm juan manuel"
                     },
                     {
-                        "optionText": "Cheese and macaroni"
+                        "type": "text",
+                        "option": "Cheese and macaroni"
                     }
                 ],
                 "correctAnswer": "I'm juan manuel"

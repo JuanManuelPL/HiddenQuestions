@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 </head>
 <body>
 
@@ -30,14 +31,23 @@
                         <div class="content-questions" style="display: flex;  flex-direction: column;">
                             <div class="section ">
                                 <i class="material-icons">free_breakfast</i>
-                                <span class="title">{{quest.questionId}} - {{quest.question}}</span>
+                                <span class="title cyan-text text-darken-4">{{quest.questionId}} - {{quest.question}}</span>
+                                <div class="context-content purple lighten-5">
+                                    <p>{{quest.context}}</p>
+                                </div>
+                                <pre class="prettyprint blue lighten-5">{{quest.codeExample}}</pre>
                             </div>
                             <div class="section ">
-                                <span class="title">Options</span>
+                                <span class="title">Options:</span>
                                 <div class="collection">
                                     <ul>
-                                        <li v-for="opt of quest.options" :key="opt.optionId">
-                                            {{opt.optionId}} <span>&#8226;</span> {{opt.optionText}}
+                                        <li v-for="opt of quest.options">
+                                            <div class="option" v-if="opt.type == 'text' ">
+                                                <span>&#8226;</span> {{opt.option}}
+                                            </div>
+                                            <div class="option" v-if="opt.type == 'code' ">
+                                                <pre class="prettyprint"><span>&#8226;</span> {{opt.option}}</pre>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -46,7 +56,7 @@
                         </div>
                     </div>
                     <div class="collapsible-body">
-                        Correct answer is <span class="flow-text cyan-text text-darken-4 ">{{quest.correctAnswer}}</span>
+                        Correct answer is: <h6 class="cyan-text text-darken-4 ">{{quest.correctAnswer}}</h6>
                     </div>    
                 </li>
             </ul>
